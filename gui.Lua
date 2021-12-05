@@ -15,7 +15,7 @@ local utility = {}
 -- themes
 local objects = {}
 local themes = {
-	_G.Color
+	Glow = Color3.fromRGB(255, 0, 0)
 }
 
 do
