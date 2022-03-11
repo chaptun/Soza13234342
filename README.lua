@@ -1,4 +1,4 @@
-
+-- init
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
 
@@ -11,17 +11,43 @@ local tweeninfo = TweenInfo.new
 -- additional
 local utility = {}
 
--- themes
+
 local objects = {}
-local themes = {
+if _G.Color == nil then
+_G.themes = {
 	Background = Color3.fromRGB(24, 24, 24), 
-	Glow = Color3.fromRGB(0, 244, 255), 
+	Glow = Color3.fromRGB(0, 0, 0), 
 	Accent = Color3.fromRGB(10, 10, 10), 
 	LightContrast = Color3.fromRGB(20, 20, 20), 
 	DarkContrast = Color3.fromRGB(14, 14, 14),  
-	TextColor = Color3.fromRGB(0, 244, 255)
+	TextColor = Color3.fromRGB(80, 245, 245)
 }
-
+themes = {
+	Background = Color3.fromRGB(24, 24, 24), 
+	Glow = Color3.fromRGB(0, 0, 0), 
+	Accent = Color3.fromRGB(10, 10, 10), 
+	LightContrast = Color3.fromRGB(20, 20, 20), 
+	DarkContrast = Color3.fromRGB(14, 14, 14),  
+	TextColor = Color3.fromRGB(80, 245, 245)
+}
+else
+_G.themes = {
+	Background = Color3.fromRGB(24, 24, 24), 
+	Glow = Color3.fromRGB(0, 0, 0), 
+	Accent = Color3.fromRGB(10, 10, 10), 
+	LightContrast = Color3.fromRGB(20, 20, 20), 
+	DarkContrast = Color3.fromRGB(14, 14, 14),  
+	TextColor = _G.Color
+}
+themes = {
+	Background = Color3.fromRGB(24, 24, 24), 
+	Glow = Color3.fromRGB(0, 0, 0), 
+	Accent = Color3.fromRGB(10, 10, 10), 
+	LightContrast = Color3.fromRGB(20, 20, 20), 
+	DarkContrast = Color3.fromRGB(14, 14, 14),  
+	TextColor = _G.Color
+}
+end
 do
 	function utility:Create(instance, properties, children)
 		local object = Instance.new(instance)
@@ -109,8 +135,8 @@ do
 		self.keybinds = {}
 		self.ended = {}
 		
-		input.InputBegan:Connect(function(key,proc)
-			if self.keybinds[key.KeyCode] and not proc then
+		input.InputBegan:Connect(function(key)
+			if self.keybinds[key.KeyCode] then
 				for i, bind in pairs(self.keybinds[key.KeyCode]) do
 					bind()
 				end
@@ -338,7 +364,8 @@ do
 				ZIndex = 3,
 				Image = "rbxassetid://" .. tostring(icon),
 				ImageColor3 = themes.TextColor,
-				ImageTransparency = 0.64
+				ImageTransparency = 0.64,
+				ScaleType = Enum.ScaleType.Fit
 			}) or {}
 		})
 		
@@ -2166,5 +2193,6 @@ do
 		end
 	end
 end
+
 
 return library
