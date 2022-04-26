@@ -1,7 +1,3 @@
-_G.Start = true
-_G.Stats = "Melee" -- Melee,Defense,Sword,Gun,Blox Fruit
-getgenv().Key = "Rezyhub-12eeawwf-byCuarry.exe-ezscript"
-getgenv().DiscordId = "909763506251890739"
 --------------------------------------
 
 local EngUi = {}
