@@ -974,7 +974,7 @@ function ems:DropDown(text,text2,list,callback)
     listDropButton.Size = UDim2.new(0, 155, 0, 24)
     listDropButton.Font = Enum.Font.GothamSemibold
     listDropButton.Text = tostring(v)
-    listDropButton.TextColor3 = Color3.fromRGB(255, 20, 95)
+    listDropButton.TextColor3 = Color3.fromRGB(22, 214, 240)
     listDropButton.TextSize = 11.000
     listDropButton.AutoButtonColor = false 
     listDropButton.AnchorPoint = Vector2.new(0.5, 0.5)
